@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-
+import  '../css/Style.css'
 export class NewsItem extends Component {
 
   
   render() {
     let { title, description, imageUrl, url, author, date, Source } = this.props;
     return (
-      <div className='my-3 '>
+      <div className='my-3 shubh'>
 
         <div className="card" ><span className="badge rounded-pill bg-danger" style={{ display: "flex", justifyContent: "flex-end", position: "absolute",right:"0"}}>{Source} </span></div>
         <img src={imageUrl} className="card-img-top" alt="..." />
