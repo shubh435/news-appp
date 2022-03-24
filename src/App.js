@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import LoadingBar from "react-top-loading-bar";
 
 class App extends Component {
-  apiKey = c057004bf4e8436bb57b5d93a96d5148; //process.env.REACT_APP_NEWS_API
+  apiKey = 'c057004bf4e8436bb57b5d93a96d5148'; //process.env.REACT_APP_NEWS_API
   pageSize = 6;
   country = "us";
   // state = {
