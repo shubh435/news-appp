@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import News from "./components/News";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
-import { createRef } from "react";
+// import { createRef } from "react";
 
 class App extends Component {
   apiKey = "c057004bf4e8436bb57b5d93a96d5148"; //process.env.REACT_APP_NEWS_API;
