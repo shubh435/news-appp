@@ -21,28 +21,27 @@ export class News extends Component {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
   constructor(props) {
-
     super(props)
     this.state = {
       articles: [],
       loading: false,
       page: 1,
-      totalResults: 0
-
+      totalResults: 0,
     }
+
     document.title = `NewsTmes - ${this.capitalizeFirstLetter(this.props.category)}`;
 
 
   }
-  async updateNews() {
-    // this.props.setProgress(10);
+ async updateNews() {
+    this.props.setProgress(10);
     const apiUrl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;//paste your url heare to get here in apiURL
     this.setState({ loading: true })
     let data = await fetch(apiUrl) //fetch that url
     let parseData = await data.json()//parse the fetch data
 
     this.setState({ articles: parseData.articles, totalResults: parseData.totalResults, loading: false })// provide the fetch articles data to the local articles
-    // this.props.setProgress(100);
+    this.props.setProgress(100);
 
   }
 
@@ -51,31 +50,16 @@ export class News extends Component {
     this.updateNews();
 
   }
-
-  // handlePrev = async () => {
-
-  //   this.setState({ page: this.state.page - 1 })
-  //   this.updateNews();
-  // }
-  // handleNext = async () => {
-  //   this.setState({ page: this.state.page + 1 });
-  //   this.updateNews();
-
-  // }
-
   fetchMoreData = async () => {
     
     this.setState({ page: this.state.page + 1 })
     const apiUrl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;//paste your url heare to get here in apiURL
-    // this.setState({ loading: true })
     let data = await fetch(apiUrl) //fetch that url
     let parseData = await data.json()//parse the fetch data
 
     this.setState({
-      // page: this.state.page + 1,
       articles: this.state.articles.concat(parseData.articles),
       totalResults: parseData.totalResults
-      // loading: false
     })// provide the fetch articles data to the local articles
 
 
