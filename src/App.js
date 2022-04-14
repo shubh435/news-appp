@@ -41,7 +41,7 @@ class App extends Component {
           <LoadingBar
             color="red"
             progress={this.state.progress}
-            onLoaderFinished={() => this.setProgress((this.state.progress = 0))}
+            onLoaderFinished={() => this.setProgress(0)}
           />
           <Routes>
             <Route
