@@ -7,7 +7,7 @@ import LoadingBar from "react-top-loading-bar";
 import { useState } from "react";
 
 const App = () => {
-  const apiKey = "c057004bf4e8436bb57b5d93a96d5148"; //process.env.REACT_APP_NEWS_API;
+  const apiKey = "ac684ef1cb444db3a8173378054fe423"; //process.env.REACT_APP_NEWS_API;
   const pageSize = 6;
   // const country = "in";
   const [country, setCountry] = useState("in");

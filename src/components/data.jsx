@@ -1,47 +1,58 @@
- const data=[
-    {
-        'id':1,
-        "countryname":"United Arab Emirates",
-        "code":"ae"
-    },
-    {
-        'id':2,
-        "countryname":"United Arab Emirates",
-        "code":"ar"
-    },
-    {
-        'id':3,
-        "countryname":"France",
-        "code":"fr"
-    },
-    {
-        'id':4,
-        "countryname":"United State",
-        "code":"us"
-    },
-    {
-        'id':5,
-        "countryname":"India",
-        "code":"in"
-    },
-    {
-        'id':6,
-        "countryname":"Japan",
-        "code":"jp"
-    },
-    {
-        'id':7,
-        "countryname":"Korean",
-        "code":"kr"
-    },
-]
+const data = [
+  {
+    id: 1,
+    countryname: "United Arab Emirates",
+    code: "ae",
+  },
+  {
+    id: 2,
+    countryname: "United Arab Emirates",
+    code: "ar",
+  },
+  {
+    id: 3,
+    countryname: "France",
+    code: "fr",
+  },
+  {
+    id: 4,
+    countryname: "United State",
+    code: "us",
+  },
+  {
+    id: 5,
+    countryname: "India",
+    code: "in",
+  },
+  {
+    id: 6,
+    countryname: "Japan",
+    code: "jp",
+  },
+  {
+    id: 7,
+    countryname: "Korean",
+    code: "kr",
+  },
+  {
+    id: 8,
+    countryname: "Austria",
+    code: "at",
+  },
+  {
+    id: 9,
+    countryname: "Austrilia",
+    code: "au",
+  },
+  {
+    id: 10,
+    countryname: "Belarusz",
+    code: "be",
+  },
+];
 
+export default data;
 
-
-export default data
-
-// at
-// au
 // be
 // bg
 // br
@@ -63,10 +74,9 @@ export default data
 // il
 // in
 // it
-// jp
-// kr
+
 // lt
-// lv 
+// lv
 // ma
 // mx
 // my

@@ -8,18 +8,19 @@ const News = (props) => {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [totalResults, setTotalResults] = useState(0);
-
+// const [category, setCategory] = useState('general')
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
   const updateNews = async () => {
     props.setProgress(10);
-
+    setPage(1);
     const apiUrl = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`; //paste your url heare to get here in apiURL
     setLoading(true);
     let data = await fetch(apiUrl); //fetch that url
     let parseData = await data.json(); //parse the fetch data
+    props.setProgress(30);
     setArticles(parseData.articles);
     setTotalResults(parseData.totalResults);
     setLoading(false); // provide the fetch articles data to the local articles
@@ -27,7 +28,9 @@ const News = (props) => {
   };
 
   useEffect(() => {
-    document.title = `NewsTmes - ${capitalizeFirstLetter(props.category)}`;
+    document.title = `NewsTmes - ${capitalizeFirstLetter(
+      props.category
+    )} -${capitalizeFirstLetter(props.country)}`;
     updateNews();
   }, [props.country]);
 
