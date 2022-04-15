@@ -1,13 +1,8 @@
 // import PropTypes from 'prop-types'
 import React from "react";
 import { Link } from "react-router-dom";
-// import data from "./data";
-const Navbar = () => {
-  // static propTypes = { second: third }
-  // state = {
-  //   data: data,
-  // };
-
+import data from "./data";
+const Navbar = ({ setCountry }) => {
   return (
     <div>
       <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
@@ -85,7 +80,7 @@ const Navbar = () => {
                                 <button className="btn btn-outline-success" type="submit">Search</button>
                             </form> */}
 
-            {/* <div className="group mx-5">
+            <div className="group mx-5">
               <div className="btn-group">
                 <button
                   type="button"
@@ -102,7 +97,8 @@ const Navbar = () => {
                         <div
                           className="dropdown-item"
                           onClick={() => {
-                            this.props.setCountry(ele.code);
+                            setCountry(ele.code);
+                            console.log(ele.code);
                           }}
                         >
                           {ele.countryname}
@@ -112,7 +108,7 @@ const Navbar = () => {
                   })}
                 </ul>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </nav>

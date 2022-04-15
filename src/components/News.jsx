@@ -29,7 +29,7 @@ const News = (props) => {
   useEffect(() => {
     document.title = `NewsTmes - ${capitalizeFirstLetter(props.category)}`;
     updateNews();
-  }, []);
+  }, [props.country]);
 
   const fetchMoreData = async () => {
     const apiUrl = `https://newsapi.org/v2/top-headlines?country=${
