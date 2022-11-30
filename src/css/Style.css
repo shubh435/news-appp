@@ -6,5 +6,8 @@
 }
 .shubh:hover {
   box-shadow: 0.2rem 0.2rem 0.8rem 0.2rem rgb(0, 0, 0, 0.3);
+}
 
+.style-loader {
+  height: 8px !important;
 }

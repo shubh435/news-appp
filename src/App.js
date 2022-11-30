@@ -11,7 +11,6 @@ const App = () => {
 
   console.log(apiKey);
   const pageSize = 6;
-  // const country = "in";
   const [country, setCountry] = useState("in");
   const [progress, setProgress] = useState(0);
 
@@ -20,9 +19,10 @@ const App = () => {
       <Router>
         <Navbar setCountry={setCountry} />
         <LoadingBar
-          color="red"
+          color="#FF0000"
           progress={progress}
           onLoaderFinished={() => setProgress(0)}
+          className="style-loader"
         />
         <Routes>
           <Route
@@ -38,7 +38,7 @@ const App = () => {
                 category={"general"}
               />
             }
-          ></Route>
+          />
           <Route
             exact
             path="/business"
@@ -52,7 +52,7 @@ const App = () => {
                 category={"business"}
               />
             }
-          ></Route>
+          />
           <Route
             exact
             path="/entertainment"
@@ -66,7 +66,7 @@ const App = () => {
                 category={"entertainment"}
               />
             }
-          ></Route>
+          />
           <Route
             exact
             path="/general"
@@ -80,7 +80,7 @@ const App = () => {
                 category={"general"}
               />
             }
-          ></Route>
+          />
           <Route
             exact
             path="/health"
@@ -94,7 +94,7 @@ const App = () => {
                 category={"health"}
               />
             }
-          ></Route>
+          />
           <Route
             exact
             path="/science"
@@ -108,7 +108,7 @@ const App = () => {
                 category={"science"}
               />
             }
-          ></Route>
+          />
           <Route
             exact
             path="/sports"
@@ -122,7 +122,7 @@ const App = () => {
                 category={"sports"}
               />
             }
-          ></Route>
+          />
           <Route
             exact
             path="/technology"
@@ -136,7 +136,7 @@ const App = () => {
                 category={"technology"}
               />
             }
-          ></Route>
+          />
         </Routes>
       </Router>
     </div>

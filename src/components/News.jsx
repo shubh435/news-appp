@@ -8,7 +8,6 @@ const News = (props) => {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [totalResults, setTotalResults] = useState(0);
-// const [category, setCategory] = useState('general')
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
@@ -17,7 +16,7 @@ const News = (props) => {
     props.setProgress(10);
     setPage(1);
     const apiUrl = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`; //paste your url heare to get here in apiURL
-    
+
     setLoading(true);
     let data = await fetch(apiUrl); //fetch that url
     let parseData = await data.json(); //parse the fetch data
@@ -37,6 +36,7 @@ const News = (props) => {
   }, [props.country]);
 
   const fetchMoreData = async () => {
+    
     const apiUrl = `https://newsapi.org/v2/top-headlines?country=${
       props.country
     }&category=${props.category}&apiKey=${props.apiKey}&page=${page +
@@ -46,12 +46,7 @@ const News = (props) => {
     let parseData = await data.json(); //parse the fetch data
     setArticles(articles.concat(parseData.articles));
     setTotalResults(parseData.totalResults);
-    // setState({
-    //   articles: articles.concat(parseData.articles),
-    //   totalResults: parseData.totalResults,
-    // }); // provide the fetch articles data to the local articles
   };
-
   return (
     <>
       <h1
@@ -70,12 +65,10 @@ const News = (props) => {
         loader={<Spinner />}
       >
         <div className="container">
-          {/* !loading &&  */}
-
           <div className="row">
-            {articles.map((e) => {
+            {articles.map((e, i) => {
               return (
-                <div className="col-md-4" key={e.url}>
+                <div className="col-md-4" key={e.url + i}>
                   <NewsItem
                     title={e.title ? e.title : ""}
                     description={
@@ -87,8 +80,8 @@ const News = (props) => {
                         : "https://images.hindustantimes.com/img/2022/02/17/1600x900/pjimage_(14)_1645078163307_1645078174372.jpg"
                     }
                     url={e.url}
-                    author={e.author ? e.author : "Unknown"}
-                    date={e.publishedAt ? e.publishedAt : " "}
+                    author={e.author ? e.author : "Na"}
+                    date={e.publishedAt ? e.publishedAt : "NA"}
                     Source={e.source.name}
                   />
                 </div>
@@ -97,11 +90,6 @@ const News = (props) => {
           </div>
         </div>
       </InfiniteScroll>
-
-      {/* <div className="container d-flex justify-content-between">
-          <button type="button" disabled={page <= 1} className="btn btn-dark" onClick={handlePrev}> &larr; Previous</button>
-          <button type="button" className="btn btn-dark" disabled={page + 1 > Math.ceil(totalResults / props.pageSize)} onClick={handleNext}>Next &rarr; </button>
-        </div> */}
     </>
   );
 };

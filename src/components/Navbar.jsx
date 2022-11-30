@@ -67,18 +67,7 @@ const Navbar = ({ setCountry }) => {
                   technology
                 </Link>
               </li>
-              {/* <li className="nav-item dropdown">
-                                    <Link className="nav-link d" to="/" i >
-
-                                        About
-                                    </Link>
-
-                                </li> */}
             </ul>
-            {/* <form className="d-flex">
-                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                                <button className="btn btn-outline-success" type="submit">Search</button>
-                            </form> */}
 
             <div className="group mx-5">
               <div className="btn-group">
@@ -98,7 +87,6 @@ const Navbar = ({ setCountry }) => {
                           className="dropdown-item"
                           onClick={() => {
                             setCountry(ele.code);
-                            console.log(ele.code);
                           }}
                         >
                           {ele.countryname}
