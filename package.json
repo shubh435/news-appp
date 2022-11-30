@@ -2,6 +2,7 @@
   "homepage": "git@github.com:shubhamsarode435/newsApp.git",
   "name": "newsapp",
   "version": "0.1.0",
+  "description": "My Electron application description",
   "private": true,
   "main": "public/electron.js",
   "dependencies": {
@@ -21,7 +22,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=4012  react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -54,6 +55,7 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.63",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
     "@electron-forge/maker-zip": "^6.0.0-beta.63",
+    "electron": "^18.2.3",
     "electron-is-dev": "^2.0.0",
     "wait-on": "^6.0.1"
   },
