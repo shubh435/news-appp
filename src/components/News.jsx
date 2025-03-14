@@ -3,6 +3,7 @@ import NewsItem from "./NewsItem";
 import Spinner from "./Spinner";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
+const BASE_URL = "https://newsapi.org/v2/top-headlines"
 const News = (props) => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,20 +12,18 @@ const News = (props) => {
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
-
   const updateNews = async () => {
     props.setProgress(10);
     setPage(1);
-    const apiUrl = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`; //paste your url heare to get here in apiURL
+    const apiUrl = `${BASE_URL}?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
 
     setLoading(true);
-    let data = await fetch(apiUrl); //fetch that url
-    let parseData = await data.json(); //parse the fetch data
+    let data = await fetch(apiUrl);
+    let parseData = await data.json(); 
     props.setProgress(30);
-
     setArticles(parseData.articles);
     setTotalResults(parseData.totalResults);
-    setLoading(false); // provide the fetch articles data to the local articles
+    setLoading(false); 
     props.setProgress(100);
   };
 
@@ -36,11 +35,7 @@ const News = (props) => {
   }, [props.country]);
 
   const fetchMoreData = async () => {
-    
-    const apiUrl = `https://newsapi.org/v2/top-headlines?country=${
-      props.country
-    }&category=${props.category}&apiKey=${props.apiKey}&page=${page +
-      1}&pageSize=${props.pageSize}`; //paste your url heare to get here in apiURL
+    const apiUrl = `${BASE_URL}?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page +1}&pageSize=${props.pageSize}`;
     setPage(page + 1);
     let data = await fetch(apiUrl); //fetch that url
     let parseData = await data.json(); //parse the fetch data

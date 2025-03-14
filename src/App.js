@@ -11,7 +11,7 @@ const App = () => {
 
   console.log(apiKey);
   const pageSize = 6;
-  const [country, setCountry] = useState("in");
+  const [country, setCountry] = useState("us");
   const [progress, setProgress] = useState(0);
 
   return (

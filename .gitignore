@@ -28,3 +28,4 @@ yarn-error.log*
 
 public/electron.js
 out
+yarn.lock
